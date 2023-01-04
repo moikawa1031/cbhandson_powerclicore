@@ -1,29 +1,16 @@
-#パラメーターはparam.txtより取得
-#$param = Get-Content param.txt
-#@($param) -is [Array]
-
-#$vcenterName = $param[1]
-#$username = $param[3]
-#$passwd = $param[5]
-#$pods = [int]($param[7])
-
-#パラメータの読み込み
-#. ".\param.ps1"
 #Linux Containerで実行する場合のパラメータの読み込み
 . "/mnt/CBhandson_script/param.ps1"
 
-
-
 Connect-VIServer -Server $vcenterName -User $username -Password $passwd -Force
 
-#テンプレート名がvCenterのテンプレート名を一致していることを必ず確認する「xxxx-temp」
+#テンプレート名がvCenterのテンプレート名を一致していることを確認する「xxxx-temp」
 $adtemp = "ad01-temp"
 $esxi01temp = "esxi01-temp"
 $esxi02temp = "esxi02-temp"
 $vc01temp = "vc01-temp"
 $st01temp = "st01-temp"
 
-#保存先のデータストア名を必ず確認する
+#保存先のデータストア名を確認する
 $datastore = "Resource"
 
 Write-Host $pods"Pods展開します" -ForegroundColor green
@@ -74,4 +61,4 @@ foreach ($i in @(1..$pods)) {
         Write-Output($v)
         New-VM -Template $st01temp -Name $v -ResourcePool $rs -Datastore $datastore
     }
-    Disconnect-VIServer -Server "$vcenterName" -Confirm:$false
+Disconnect-VIServer -Server "$vcenterName" -Confirm:$false
