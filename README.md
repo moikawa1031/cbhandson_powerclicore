@@ -1,17 +1,17 @@
 # cbhandson_powerclicore
 
-ファイルの説明<br>
+■ファイルの説明■<br>
 
 <br>
-パラメータファイルの定義<br>
+・パラメータファイルの定義<br>
 param.ps1<br>
 
 <br>
-Podの展開<br>
+・Podの展開<br>
 Test_Snapshot_Pod_Create.ps1<br>
 <br><br><br>
 
-実行方法<br>
+■実行方法■<br>
 
 1.最新版のPowerclicoreダウンロード<br>
 sudo docker pull vmware/powerclicore:latest<br>
